@@ -1,0 +1,28 @@
+Users:
+    - POST -> /signup ✔️
+    - POST -> /login ✔️
+    - GET -> /logout ✔️
+    - GET -> /profile //all user data
+    - PUT -> /profile/:id //update profile
+    - DELETE -> /profile/:id 
+    - //Payment wala bhi kuch karna h 
+    - PATCH -> /purchase/:id //id->gameID
+    - GET -> /games //get all games (feed) 
+
+    
+
+Game:
+    - POST --> /addGame - Add new Game (by seller) ✔️
+    - DELETE --> /deleteGame - Delete game ✔️
+    - PATCH --> /approveGame - Approve the game ✔️
+    - PATCH --> /rejectGame - Reject game ✔️
+
+    - GET --> /allGames
+
+Sellers : 
+    - POST --> /signup ✔️
+    - POST --> /login ✔️
+    - GET --> /logout ✔️
+    - GET -> /profile //all user data
+    - PUT -> /profile/:id //update profile
+    - DELETE -> /profile/:id 
