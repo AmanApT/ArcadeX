@@ -19,6 +19,8 @@ const sellerAuth = async (req, res, next) => {
       throw new Error("Invalid seller!!");
     }
 
+    req.sellerId = _id;
+
     next();
   } catch (err) {
     res.status(403).json({ Error: err.message });

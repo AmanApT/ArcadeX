@@ -1,4 +1,5 @@
 const Game = require("../models/game");
+const Seller = require("../models/seller");
 
 // {
 //     "title": "Cyber Quest",
@@ -39,6 +40,8 @@ const addGame = async (req, res) => {
       genre,
     } = req.body;
 
+    const { sellerId } = req;
+
     const game = new Game({
       title,
       description,
@@ -55,6 +58,10 @@ const addGame = async (req, res) => {
 
     await game.save();
 
+    await Seller.findByIdAndUpdate(sellerId, {
+      $push: { games: game._id },
+    });
+
     res.json({ message: "Game Added!!" });
   } catch (err) {
     res.status(400).json({ Error: err.message });
@@ -64,8 +71,13 @@ const addGame = async (req, res) => {
 const deleteGame = async (req, res) => {
   try {
     const { _id } = req.body;
+    const { sellerId } = req;
 
     await Game.findByIdAndDelete(_id);
+
+    await Seller.findByIdAndUpdate(sellerId, {
+      $pull: { games: _id },
+    });
 
     res.json({ message: "Deleted Successfully!!" });
   } catch (err) {

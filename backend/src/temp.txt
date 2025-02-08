@@ -2,12 +2,14 @@ Users:
     - POST -> /signup ✔️
     - POST -> /login ✔️
     - GET -> /logout ✔️
-    - GET -> /profile //all user data
-    - PUT -> /profile/:id //update profile
-    - DELETE -> /profile/:id 
+    - GET -> /profile //all user data ✔️
+    - PUT -> /profile/:id //update profile 
+    - DELETE -> /profile/:id ✔️
     - //Payment wala bhi kuch karna h 
     - PATCH -> /purchase/:id //id->gameID
-    - GET -> /games //get all games (feed) 
+    - GET -> /games //get all games (feed) ✔️
+
+    - PATCH -> /addToCart ✔️
 
     
 
@@ -17,12 +19,14 @@ Game:
     - PATCH --> /approveGame - Approve the game ✔️
     - PATCH --> /rejectGame - Reject game ✔️
 
-    - GET --> /allGames
+    - GET --> /allGames ✔️
 
 Sellers : 
     - POST --> /signup ✔️
     - POST --> /login ✔️
     - GET --> /logout ✔️
-    - GET -> /profile //all user data
+    - GET -> /profile //all seller data ✔️
     - PUT -> /profile/:id //update profile
-    - DELETE -> /profile/:id 
+    - DELETE -> /profile/:id ✔️
+
+    - GET -> /games //get all games (only uploaded by seller) ✔️

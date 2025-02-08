@@ -62,6 +62,7 @@ const userSchema = new mongoose.Schema({
   membership: {
     type: String,
     enum: ["Amateur", "Advanced", "Elite"],
+    default: "Amateur",
   },
 });
 

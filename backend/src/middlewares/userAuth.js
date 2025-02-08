@@ -19,6 +19,8 @@ const userAuth = async (req, res, next) => {
       throw new Error("Invalid user!!");
     }
 
+    req.userId = _id;
+
     next();
   } catch (err) {
     res.status(403).json({ Error: err.message });

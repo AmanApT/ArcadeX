@@ -7,6 +7,7 @@ const {
   allGames,
 } = require("../controllers/gameController");
 const sellerAuth = require("../middlewares/sellerAuth");
+const adminAuth = require("../middlewares/adminAuth");
 
 const router = express.Router();
 
@@ -15,6 +16,6 @@ router.delete("/deleteGame", sellerAuth, deleteGame);
 router.patch("/approveGame", sellerAuth, approveGame);
 router.patch("/rejectGame", sellerAuth, rejectGame);
 
-router.get("/allGames", allGames);
+router.get("/allGames", adminAuth, allGames);
 
 module.exports = router;
