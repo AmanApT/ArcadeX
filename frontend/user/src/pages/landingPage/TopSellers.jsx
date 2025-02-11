@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 
 const TopSellers = () => {
   const [bgImage, setBgImage] = useState("/src/assets/card_img.webp");
   const containerRef = useRef(null);
   const cardsRef = useRef([]);
+  // const { games } = useSelector((store) => store.game);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,6 +83,21 @@ const TopSellers = () => {
             ></div>
           ))}
         </div>
+
+        {/* <div
+          ref={containerRef}
+          className="scroll-container flex gap-8 overflow-x-auto scrollbar-hide"
+        >
+          {games.map((eachGame, index) => (
+            <div
+              key={index}
+              data-bg={eachGame.banner_img}
+              ref={(el) => (cardsRef.current[index] = el)}
+              className="bg-cover bg-center w-60 h-84 rounded-xl shrink-0"
+              style={{ backgroundImage: `url(${eachGame.banner_img})` }}
+            ></div>
+          ))}
+        </div> */}
 
         <div className="flex gap-8">
           <div className="bg-cover bg-center w-[32%] h-84 rounded-xl shrink-0 bg-[url(/src/assets/bgImage2.jpg)]"></div>

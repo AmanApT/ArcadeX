@@ -16,9 +16,9 @@ const adminAuth = async (req, res, next) => {
       throw new Error("Invalid Key!!");
     }
 
-    if (_id !== process.env.ADMIN_SECRET_KEY) {
-      throw new Error("Wrong Key!!");
-    }
+    // if (_id !== process.env.ADMIN_SECRET_KEY) {
+    //   throw new Error("Wrong Key!!");
+    // }
 
     next();
   } catch (err) {

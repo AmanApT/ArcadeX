@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaRegUserCircle } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { removeUser } from "../../utils/userSlice";
+import { removeSeller } from "../../utils/sellerSlice";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const user = useSelector((store) => store.user);
   const location = useLocation();
-  const isBlackBg = ["/wishlist", "/cart", "/myPurchases"].includes(location.pathname);
+  const isBlackBg = ["/wishlist", "/cart", "/myPurchases"].includes(
+    location.pathname
+  );
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +32,7 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleSignout = async () => {
+  const handleLogout = async () => {
     try {
       const response = await fetch("/api/auth/signout", {
         method: "GET",
@@ -35,6 +42,11 @@ const Navbar = () => {
       if (!response.ok) {
         throw new Error("Signout failed");
       }
+
+      dispatch(removeUser());
+      dispatch(removeSeller());
+      localStorage.removeItem("type");
+      navigate("/");
     } catch (error) {
       console.error("Error signing out:", error.message);
     }
@@ -42,9 +54,13 @@ const Navbar = () => {
 
   return (
     <header
-    className={`fixed top-0 z-10 w-full transition-all duration-300 font-kdam py-2 ${
-      isBlackBg ? "bg-black" : scrolled ? "bg-[#181713]/80 shadow-md" : "bg-transparent"
-    }`}
+      className={`fixed top-0 z-10 w-full transition-all duration-300 font-kdam py-2 ${
+        isBlackBg
+          ? "bg-black"
+          : scrolled
+          ? "bg-[#181713]/80 shadow-md"
+          : "bg-transparent"
+      }`}
     >
       <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 ">
         {/* <a className="block text-teal-600 dark:text-teal-300" href="#">
@@ -90,7 +106,7 @@ const Navbar = () => {
               <div className="sm:flex sm:gap-4">
                 <a
                   className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 dark:hover:bg-teal-500"
-                  href="#"
+                  onClick={() => navigate("/auth/login")}
                 >
                   Sign In
                 </a>
@@ -105,13 +121,12 @@ const Navbar = () => {
             ) : (
               <div className="sm:gap-4 text-white flex items-center">
                 <div>
-                <CiShoppingCart size={24}/>
+                  <CiShoppingCart size={24} />
                 </div>
-                <FaRegUserCircle  size={24}/>
+                <FaRegUserCircle size={24} />
                 <a
                   className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 dark:hover:bg-teal-500"
-                  href="#"
-                  onClick={handleSignout}
+                  onClick={handleLogout}
                 >
                   Sign Out
                 </a>

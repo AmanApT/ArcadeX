@@ -117,6 +117,7 @@ const signin = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
     });
+
     res.json({ data: data });
   } catch (err) {
     res.status(401).json({ Error: err.message });
@@ -136,8 +137,8 @@ const refresh = async (req, res) => {
   try {
     const { token } = req.cookies;
     const { type } = req.body;
-    console.log(req.body);
-    console.log(req.cookies);
+    // console.log(req.body);
+    // console.log(req.cookies);
 
     let data;
 
@@ -162,9 +163,10 @@ const refresh = async (req, res) => {
         throw new Error("Invalid seller!!");
       }
     }
+    // console.log(data);
 
-    console.log(data);
-
+    data = data.toObject();
+    delete data.password;
     res.json({ data: data });
   } catch (err) {
     res.status(403).json({ Error: err.message });

@@ -11,7 +11,7 @@ const gameSchema = new mongoose.Schema({
     type: String,
     required: true,
     minLength: 20,
-    maxLength: 100,
+    maxLength: 250,
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
@@ -77,6 +77,11 @@ const gameSchema = new mongoose.Schema({
   genre: {
     type: String,
     enum: ["Action", "Adventure", "Open-world", "Horror", "Simulation", "RPG"],
+    required: true,
+  },
+  iarc: {
+    type: String,
+    enum: ["3", "7", "12", "18"],
     required: true,
   },
 });
