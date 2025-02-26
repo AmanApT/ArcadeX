@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const TopSellers = () => {
   const [bgImage, setBgImage] = useState("/src/assets/card_img.webp");
   const containerRef = useRef(null);
   const cardsRef = useRef([]);
-  // const { games } = useSelector((store) => store.game);
+  const { games } = useSelector((store) => store.game);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,7 +57,7 @@ const TopSellers = () => {
           <h1 className="!text-4xl">Top Sellers</h1>
         </div>
 
-        <div
+        {/* <div
           ref={containerRef}
           className="scroll-container flex gap-8 overflow-x-auto scrollbar-hide"
         >
@@ -82,9 +84,9 @@ const TopSellers = () => {
               style={{ backgroundImage: `url(${img})` }}
             ></div>
           ))}
-        </div>
+        </div> */}
 
-        {/* <div
+        <div
           ref={containerRef}
           className="scroll-container flex gap-8 overflow-x-auto scrollbar-hide"
         >
@@ -95,9 +97,10 @@ const TopSellers = () => {
               ref={(el) => (cardsRef.current[index] = el)}
               className="bg-cover bg-center w-60 h-84 rounded-xl shrink-0"
               style={{ backgroundImage: `url(${eachGame.banner_img})` }}
+              onClick={() => navigate(`/game/${eachGame?._id}`)}
             ></div>
           ))}
-        </div> */}
+        </div>
 
         <div className="flex gap-8">
           <div className="bg-cover bg-center w-[32%] h-84 rounded-xl shrink-0 bg-[url(/src/assets/bgImage2.jpg)]"></div>

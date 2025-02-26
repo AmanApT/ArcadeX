@@ -10,9 +10,13 @@ const sellerSlice = createSlice({
     removeSeller: () => {
       return null;
     },
+    updateSellerName(state, action) {
+      state.name = action.payload;
+    },
   },
 });
 
-export const { addSeller, removeSeller } = sellerSlice.actions;
+export const { addSeller, removeSeller, updateSellerName } =
+  sellerSlice.actions;
 
 export default sellerSlice.reducer;

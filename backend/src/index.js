@@ -5,6 +5,7 @@ const authRoute = require("./routes/authRoute");
 const gameRoute = require("./routes/gameRoute");
 const userRoute = require("./routes/userRoute");
 const sellerRoute = require("./routes/sellerRoute");
+const paymentRoute = require("./routes/paymentRoute");
 const userAuth = require("./middlewares/userAuth");
 const sellerAuth = require("./middlewares/sellerAuth");
 const cookieParser = require("cookie-parser");
@@ -19,8 +20,8 @@ app.use(cookieParser());
 app.use(express.static("public"));
 
 const corsOptions = {
-  origin: "http://localhost:5173",
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: ["http://localhost:5173", "http://localhost:5174"],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 };
@@ -32,14 +33,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/game", gameRoute);
 app.use("/api/user", userRoute);
 app.use("/api/seller", sellerRoute);
-
-//Just for testing purpose
-app.get("/api/test", userAuth, (req, res) => {
-  res.send("Radhe radhe");
-});
-app.get("/api/seller", sellerAuth, (req, res) => {
-  res.send("Eeeeeeeeeeee seller wala h, hihihihi");
-});
+app.use("/api/payment", paymentRoute);
 
 connectDB().then(() => {
   console.log(`Connected to DB succesfully!`);

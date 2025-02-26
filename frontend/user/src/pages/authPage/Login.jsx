@@ -57,7 +57,7 @@ const Login = () => {
 
       localStorage.setItem("type", userData.type);
 
-      if (type === "Seller") {
+      if (userData.type === "Seller") {
         dispatch(
           addSeller({
             _id,
@@ -68,8 +68,8 @@ const Login = () => {
             type,
           })
         );
-        navigate("/seller");
-      } else {
+        navigate("/");
+      } else if (userData.type === "User") {
         dispatch(
           addUser({
             _id,
@@ -176,6 +176,14 @@ const Login = () => {
           {success && (
             <p className="text-green-500 text-center mt-3">{success}</p>
           )}
+          <p className="text-sm text-center">
+            <a
+              onClick={() => navigate("/forgotPassword")}
+              className="text-blue-500 hover:underline"
+            >
+              Forgot Password?
+            </a>
+          </p>
         </form>
       </div>
     </section>

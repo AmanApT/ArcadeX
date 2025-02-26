@@ -6,6 +6,8 @@ const {
   rejectGame,
   allGames,
   landingPageGames,
+  getSingleGame,
+  sellerGames,
 } = require("../controllers/gameController");
 const sellerAuth = require("../middlewares/sellerAuth");
 const adminAuth = require("../middlewares/adminAuth");
@@ -16,11 +18,13 @@ const fs = require("fs");
 
 router.post("/addGame", sellerAuth, addGame);
 router.delete("/deleteGame", sellerAuth, deleteGame);
-router.patch("/approveGame", sellerAuth, approveGame);
-router.patch("/rejectGame", sellerAuth, rejectGame);
+router.patch("/approveGame", adminAuth, approveGame);
+router.patch("/rejectGame", adminAuth, rejectGame);
 
 router.get("/allGames", adminAuth, allGames);
 router.get("/landingPageGames", landingPageGames);
+
+router.get("/getGame/:id", getSingleGame);
 
 // router.post("/uploadBanner", multerMiddleware, gameBannerUpload);
 // router.post("/uploadBanner", upload.single("image"), gameBannerUpload);
@@ -67,6 +71,8 @@ router.post("/uploadBanner", upload.single("image"), function (req, res) {
     }
   );
 });
+
+router.post("/sellerGames", sellerAuth, sellerGames);
 
 router.post(
   "/uploadPreviews",

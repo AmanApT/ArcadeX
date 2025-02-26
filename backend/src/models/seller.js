@@ -38,6 +38,13 @@ const sellerSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  otp: String,
+  otpExpires: {
+    type: Date,
+    expires: 300,
+  },
+  resetPasswordToken: { type: String },
+  resetPasswordExpires: { type: Date },
 });
 
 module.exports = mongoose.model("Seller", sellerSchema);

@@ -1,0 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+@import "tailwindcss";
+
+.font-kdam {
+  font-family: "Kdam Thmor Pro", sans-serif;
+}

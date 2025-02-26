@@ -4,12 +4,13 @@ import UploadGame from "./UploadGame";
 import ManageGame from "./ManageGame";
 import Profile from "./Profile";
 import { FaGamepad, FaUpload, FaList, FaUser } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const SellerDashboard = () => {
   const [activeTab, setActiveTab] = useState(
     () => localStorage.getItem("activeTab") || "dashboard"
   );
-  const [games, setGames] = useState([]);
+  const { seller } = useSelector((store) => store);
 
   useEffect(() => {
     localStorage.setItem("activeTab", activeTab);
@@ -44,13 +45,9 @@ const SellerDashboard = () => {
 
       {/* Main Content */}
       <main className="flex-1 p-6 overflow-y-auto">
-        {activeTab === "dashboard" && <Dashboard games={games} />}
-        {activeTab === "upload" && (
-          <UploadGame games={games} setGames={setGames} />
-        )}
-        {activeTab === "manage" && (
-          <ManageGame games={games} setGames={setGames} />
-        )}
+        {activeTab === "dashboard" && <Dashboard games={seller?.games} />}
+        {activeTab === "upload" && <UploadGame />}
+        {activeTab === "manage" && <ManageGame games={seller?.games} />}
         {activeTab === "profile" && <Profile />}
       </main>
     </div>

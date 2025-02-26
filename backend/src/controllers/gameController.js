@@ -41,6 +41,7 @@ const addGame = async (req, res) => {
       tier,
       genre,
       iarc,
+      trailer_url,
     } = req.body;
 
     const { sellerId } = req;
@@ -58,6 +59,7 @@ const addGame = async (req, res) => {
       tier,
       genre,
       iarc,
+      trailer_url,
     });
 
     await game.save();
@@ -117,6 +119,7 @@ const allGames = async (req, res) => {
   try {
     const games = await Game.find({});
 
+    console.log(games);
     res.json({ data: games });
   } catch (err) {
     res.status(400).json({ Error: err.message });
@@ -125,9 +128,21 @@ const allGames = async (req, res) => {
 
 const landingPageGames = async (req, res) => {
   try {
-    const games = await Game.find({}).select("_id title banner_img price");
+    const games = await Game.find({ status: "approved" }).select(
+      "_id title banner_img price multiplayer sold_copies genre"
+    );
 
     res.json({ data: games });
+  } catch (err) {
+    res.status(400).json({ Error: err.message });
+  }
+};
+
+const getSingleGame = async (req, res) => {
+  try {
+    const game = await Game.findById(req.params.id);
+
+    res.json({ data: game });
   } catch (err) {
     res.status(400).json({ Error: err.message });
   }
@@ -151,6 +166,17 @@ const gameBannerUpload = async (req, res) => {
   });
 };
 
+const sellerGames = async (req, res) => {
+  try {
+    const gamesArr = req.body;
+
+    const games = await Game.find({ _id: { $in: gamesArr } });
+    res.json({ games });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch games" });
+  }
+};
+
 module.exports = {
   addGame,
   deleteGame,
@@ -158,5 +184,7 @@ module.exports = {
   rejectGame,
   allGames,
   landingPageGames,
+  getSingleGame,
   gameBannerUpload,
+  sellerGames,
 };

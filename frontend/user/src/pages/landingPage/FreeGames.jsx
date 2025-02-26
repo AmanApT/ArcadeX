@@ -1,4 +1,11 @@
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 const FreeGames = () => {
+  const games = useSelector((store) => store.game.games);
+  const freeGames = games?.filter((game) => game?.price == 0);
+  const navigate = useNavigate();
+
   return (
     <section className="h-screen bg-black text-white relative transition-all duration-500 font-kdam">
       {/* <div
@@ -31,14 +38,27 @@ const FreeGames = () => {
           </div>
 
           <div className="flex justify-evenly">
-            <div className="w-[40%] ">
-              <div className="bg-cover bg-center h-84 rounded-xl shrink-0 bg-[url(/src/assets/bgImage2.jpg)]"></div>
-              <h3 className="text-2xl mt-4">Black Ops</h3>
-            </div>
-            <div className="w-[40%]">
+            {freeGames?.map((eachFreeGame) => {
+              return (
+                <div
+                  key={eachFreeGame._id}
+                  className="w-[40%]"
+                  onClick={() => navigate(`/game/${eachFreeGame?._id}`)}
+                >
+                  <div
+                    className={`bg-cover bg-center h-84 rounded-xl shrink-0`}
+                    style={{
+                      backgroundImage: `url(${eachFreeGame?.banner_img})`,
+                    }}
+                  ></div>
+                  <h3 className="text-2xl mt-4">{eachFreeGame?.title}</h3>
+                </div>
+              );
+            })}
+            {/* <div className="w-[40%]">
               <div className="bg-cover bg-center h-84 rounded-xl shrink-0 bg-[url(/src/assets/bgImage2.jpg)]"></div>
               <h3 className="text-2xl mt-4">Beyond Blue</h3>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
