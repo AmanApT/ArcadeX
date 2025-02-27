@@ -19,8 +19,6 @@ const UserGames = () => {
   const games = useSelector((store) => store.game?.games);
   const cartGames = games?.filter((game) => cartItems?.includes(game._id));
 
-  console.log(purchasedItems);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -65,17 +63,23 @@ const UserGames = () => {
         </p>
 
         <div className="flex flex-col gap-8">
-          {componentType === "cart"
-            ? cartItems?.map((id) => (
+          {componentType === "cart" ? (
+            cartItems?.length!=0 ? cartItems?.map((id) => (
+              <EachGame key={id} gameId={id} type={componentType} />
+            )) :  <h1>No Games Found in Cart</h1>
+          ) : componentType === "wishlist" ? (
+            wishlistedItems?.length != 0 ? (
+              wishlistedItems?.map((id) => (
                 <EachGame key={id} gameId={id} type={componentType} />
               ))
-            : componentType === "wishlist"
-            ? wishlistedItems?.map((id) => (
-                <EachGame key={id} gameId={id} type={componentType} />
-              ))
-            : purchasedItems?.map((id) => (
-                <EachGame key={id} gameId={id} type={componentType} />
-              ))}
+            ) : (
+              <h1>No Games Found in Wishlist</h1>
+            )
+          ) : (
+            purchasedItems?.length!=0 ?  purchasedItems?.map((id) => (
+              <EachGame key={id} gameId={id} type={componentType} />
+            )) :  <h1>No Games Purchased</h1>
+          )}
         </div>
 
         {/* Checkout Summary Section */}

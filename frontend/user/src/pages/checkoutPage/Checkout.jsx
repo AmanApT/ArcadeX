@@ -31,10 +31,10 @@ const Checkout = ({ amount, cartItems }) => {
 
   return (
     <button
-      className={`px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg font-semibold text-lg transition-all duration-300 ${
+      className={`px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-lg font-semibold text-lg transition-all duration-300 ${
         cartItems?.length === 0 || loading
           ? "opacity-50 cursor-not-allowed"
-          : "hover:bg-blue-700"
+          : "hover:bg-red-700"
       }`}
       disabled={cartItems?.length === 0 || loading}
       onClick={handleCheckout}

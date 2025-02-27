@@ -8,6 +8,7 @@ const TopSellers = () => {
   const cardsRef = useRef([]);
   const { games } = useSelector((store) => store.game);
   const navigate = useNavigate();
+  console.log(games);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,24 +89,42 @@ const TopSellers = () => {
 
         <div
           ref={containerRef}
-          className="scroll-container flex gap-8 overflow-x-auto scrollbar-hide"
+          className="scroll-container p-4 flex gap-8 overflow-x-auto scrollbar-hide"
         >
           {games.map((eachGame, index) => (
             <div
               key={index}
               data-bg={eachGame.banner_img}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="bg-cover bg-center w-60 h-84 rounded-xl shrink-0"
+              className="bg-cover  cursor-pointer hover:scale-105 hover:shadow-2xl shadow-red-400 transition-all ease-in bg-center w-60 h-84 rounded-xl shrink-0"
               style={{ backgroundImage: `url(${eachGame.banner_img})` }}
               onClick={() => navigate(`/game/${eachGame?._id}`)}
             ></div>
           ))}
         </div>
 
-        <div className="flex gap-8">
-          <div className="bg-cover bg-center w-[32%] h-84 rounded-xl shrink-0 bg-[url(/src/assets/bgImage2.jpg)]"></div>
-          <div className="bg-cover bg-center w-[32%] h-84 rounded-xl shrink-0 bg-[url(/src/assets/bgImage2.jpg)]"></div>
-          <div className="bg-cover bg-center w-[32%] h-84 rounded-xl shrink-0 bg-[url(/src/assets/bgImage2.jpg)]"></div>
+        <div className="flex gap-8 my-4 p-4">
+          <div
+            onClick={() => navigate(`/game/${games[games?.length - 1]._id}`)}
+            style={{
+              backgroundImage: `url(${games[games?.length - 1].banner_img})`,
+            }}
+            className="bg-cover cursor-pointer bg-center  w-[25%] h-84 rounded-xl shrink-0  hover:scale-105 hover:shadow-xl shadow-red-500 transition-all ease-in "
+          ></div>
+          <div
+            onClick={() => navigate(`/game/${games[games?.length - 2]._id}`)}
+            style={{
+              backgroundImage: `url(${games[games?.length - 2].banner_img})`,
+            }}
+            className="bg-cover cursor-pointer bg-center w-[25%] h-84 rounded-xl shrink-0   hover:scale-105 hover:shadow-xl shadow-red-500 transition-all ease-in"
+          ></div>
+          <div
+            onClick={() => navigate(`/game/${games[games?.length - 3]._id}`)}
+            style={{
+              backgroundImage: `url(${games[games?.length - 3].banner_img})`,
+            }}
+            className="bg-cover  cursor-pointer bg-center w-[25%] h-84 rounded-xl   hover:scale-105 hover:shadow-xl shadow-red-500 transition-all ease-in"
+          ></div>
         </div>
       </div>
     </section>

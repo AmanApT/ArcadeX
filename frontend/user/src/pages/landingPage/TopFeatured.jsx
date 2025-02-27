@@ -42,7 +42,7 @@ const TopFeatured = () => {
                     alt={`${game?.title} cover`}
                   />
                   <div>
-                    <h3 className="text-lg font-medium hover:text-blue-400 hover:cursor-pointer transition-all duration-300">
+                    <h3 className="text-lg font-medium hover:text-red-400 hover:cursor-pointer transition-all duration-300">
                       {game?.title}
                     </h3>
                     <p className="opacity-50 text-sm">$ {game?.price}</p>
@@ -72,7 +72,7 @@ const TopFeatured = () => {
                     alt={`${game?.title} cover`}
                   />
                   <div>
-                    <h3 className="text-lg font-medium hover:text-blue-400 hover:cursor-pointer transition-all duration-300">
+                    <h3 className="text-lg font-medium hover:text-red-400 hover:cursor-pointer transition-all duration-300">
                       {game?.title}
                     </h3>
                     <p className="opacity-50 text-sm">$ {game?.price}</p>
@@ -102,7 +102,7 @@ const TopFeatured = () => {
                     alt={`${game?.title} cover`}
                   />
                   <div>
-                    <h3 className="text-lg font-medium hover:text-blue-400 hover:cursor-pointer transition-all duration-300">
+                    <h3 className="text-lg font-medium hover:text-red-400 hover:cursor-pointer transition-all duration-300">
                       {game?.title}
                     </h3>
                     <p className="opacity-50 text-sm">$ {game?.price}</p>

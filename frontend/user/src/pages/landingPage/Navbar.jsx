@@ -131,7 +131,7 @@ const Navbar = () => {
                 value={searchTerm}
                 onChange={handleSearch}
                 placeholder="Search in store"
-                className="w-80 px-4 py-2 rounded-lg border border-teal-600 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-teal-600 dark:bg-[#242428] dark:border-gray-600 dark:text-white"
+                className="w-80 px-4 py-2 rounded-lg border border-red-600 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-red-600 dark:bg-[#242428] dark:border-gray-600 dark:text-white"
               />
               {/* Recommendations */}
               {searchTerm && filteredGames.length > 0 && (
@@ -159,14 +159,14 @@ const Navbar = () => {
             {!user && !seller ? (
               <div className="sm:flex sm:gap-4">
                 <a
-                  className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 dark:hover:bg-teal-500"
+                  className="block cursor-pointer rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-800 "
                   onClick={() => navigate("/auth/login")}
                 >
                   Sign In
                 </a>
 
                 <a
-                  className="hover:cursor-pointer hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                  className="hover:cursor-pointer hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-red-600/75 sm:block dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
                   onClick={() => navigate("/auth/signup")}
                 >
                   Sign Up
@@ -192,7 +192,7 @@ const Navbar = () => {
                 )}
                 <FaRegUserCircle size={24} />
                 <a
-                  className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 dark:hover:bg-teal-500"
+                  className="block rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700 dark:hover:bg-red-500"
                   onClick={handleLogout}
                 >
                   Sign Out
