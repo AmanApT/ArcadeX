@@ -83,7 +83,7 @@ const Navbar = () => {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8">
-        <h1 className="text-[#F7EBD1] text-2xl" onClick={() => navigate("/")}>
+        <h1 className="text-[#ffffff] cursor-pointer text-2xl" onClick={() => navigate("/")}>
           ARACDE X
         </h1>
 
