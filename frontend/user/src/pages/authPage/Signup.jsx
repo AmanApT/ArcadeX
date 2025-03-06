@@ -75,7 +75,7 @@ const Signup = () => {
               value={userData.name}
               onChange={handleChange}
               placeholder="Enter your username"
-              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               required
             />
           </div>
@@ -95,7 +95,7 @@ const Signup = () => {
               value={userData.email}
               onChange={handleChange}
               placeholder="Enter your email address"
-              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               required
             />
           </div>
@@ -115,7 +115,7 @@ const Signup = () => {
               value={userData.contact}
               onChange={handleChange}
               placeholder="Enter your contact number"
-              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               required
             />
           </div>
@@ -135,7 +135,7 @@ const Signup = () => {
               value={userData.password}
               onChange={handleChange}
               placeholder="Enter your password"
-              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               required
             />
           </div>
@@ -149,7 +149,7 @@ const Signup = () => {
               id="type"
               value={userData.type}
               onChange={handleChange}
-              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
             >
               <option value="User">User</option>
               <option value="Seller">Seller</option>
@@ -159,7 +159,7 @@ const Signup = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full mt-9 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300"
+            className="w-full mt-9 py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300"
             disabled={loading}
           >
             {loading ? "Creating..." : "Continue"}
@@ -176,7 +176,7 @@ const Signup = () => {
             <a href="#" className="text-[#88888A]">
               Already have an account?{" "}
               <span
-                className="text-blue-400 hover:text-blue-500"
+                className="text-red-400 hover:text-red-500"
                 onClick={() => navigate("/auth/login")}
               >
                 Sign In

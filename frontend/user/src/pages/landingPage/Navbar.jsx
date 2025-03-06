@@ -114,12 +114,13 @@ const Navbar = () => {
               >
                 My Purchases
               </a>
-              {/* <a
-              className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              href="#"
+              <a
+              className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75 cursor-pointer"
+              // href="#"
+              onClick={() => alert("Feature Coming Soon!!")}
             >
-              Membership Plans
-            </a> */}
+              Chat Room
+            </a>
             </nav>
           )}
 
@@ -192,7 +193,7 @@ const Navbar = () => {
                 )}
                 <FaRegUserCircle size={24} />
                 <a
-                  className="block rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700 dark:hover:bg-red-500"
+                  className="block rounded-md cursor-pointer bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700 dark:hover:bg-red-500"
                   onClick={handleLogout}
                 >
                   Sign Out

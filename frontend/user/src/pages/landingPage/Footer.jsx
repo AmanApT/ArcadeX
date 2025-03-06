@@ -153,50 +153,7 @@ const Footer = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:text-left">
-            <div>
-              <strong className="font-medium text-gray-900 dark:text-white">
-                {" "}
-                Services{" "}
-              </strong>
-
-              <ul className="mt-6 space-y-1">
-                <li>
-                  <a
-                    className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
-                    href="#"
-                  >
-                    Marketing
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
-                    href="#"
-                  >
-                    Graphic Design
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
-                    href="#"
-                  >
-                    App Development
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
-                    href="#"
-                  >
-                    Web Development
-                  </a>
-                </li>
-              </ul>
-            </div>
+        
 
             <div>
               <strong className="font-medium text-gray-900 dark:text-white">

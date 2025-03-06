@@ -87,7 +87,7 @@ const Login = () => {
       }
     } catch (err) {
       setError("Something went wrong, please try again.");
-      console.log(err);
+     
     } finally {
       setLoading(false);
     }
@@ -120,7 +120,7 @@ const Login = () => {
               value={userData.email}
               onChange={handleChange}
               placeholder="Enter your email address"
-              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               required
             />
           </div>
@@ -140,7 +140,7 @@ const Login = () => {
               value={userData.password}
               onChange={handleChange}
               placeholder="Enter your password"
-              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               required
             />
           </div>
@@ -155,7 +155,7 @@ const Login = () => {
               id="type"
               value={userData.type}
               onChange={handleChange}
-              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-[#242428] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
             >
               <option value="User">User</option>
               <option value="Seller">Seller</option>
@@ -165,7 +165,7 @@ const Login = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full mt-9 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300"
+            className="w-full mt-9 py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300"
             disabled={loading}
           >
             {loading ? "Logging in..." : "Login"}
@@ -179,7 +179,7 @@ const Login = () => {
           <p className="text-sm text-center">
             <a
               onClick={() => navigate("/forgotPassword")}
-              className="text-blue-500 hover:underline"
+              className="text-red-500 hover:underline"
             >
               Forgot Password?
             </a>

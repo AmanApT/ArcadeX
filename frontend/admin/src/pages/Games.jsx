@@ -52,7 +52,7 @@ const Games = () => {
 
   const pendingGames = game?.filter((game) => game.status === "pending");
 
-  console.log(pendingGames);
+ 
 
   return (
     <div className="bg-[#121212] text-white p-6 font-kdam">

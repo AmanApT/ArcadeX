@@ -31,21 +31,42 @@ const TopFeatured = () => {
             </h2>
             <div className="mt-5 space-y-4">
               {topOnline?.map((game, index) => (
+                // <div
+                //   key={index}
+                //   className="flex items-center gap-4 p-3 rounded-lg"
+                //   onClick={() => navigate(`/game/${game?._id}`)}
+                // >
+                //   <img
+                //     className="rounded-xl w-10 sm:w-12 md:w-16 lg:w-20 xl:w-24 hover:cursor-pointer transform hover:scale-105 transition-all duration-300"
+                //     src={game?.banner_img}
+                //     alt={`${game?.title} cover`}
+                //   />
+                //   <div>
+                //     <h3 className="text-lg font-medium hover:text-red-400 hover:cursor-pointer transition-all duration-300">
+                //       {game?.title}
+                //     </h3>
+                //     <p className="opacity-50 text-sm">$ {game?.price}</p>
+                //   </div>
+                // </div>
                 <div
                   key={index}
-                  className="flex items-center gap-4 p-3 rounded-lg"
+                  className="glass-list-item flex cursor-pointer items-center gap-4 p-3 rounded-lg"
                   onClick={() => navigate(`/game/${game?._id}`)}
                 >
-                  <img
-                    className="rounded-xl w-10 sm:w-12 md:w-16 lg:w-20 xl:w-24 hover:cursor-pointer transform hover:scale-105 transition-all duration-300"
-                    src={game?.banner_img}
-                    alt={`${game?.title} cover`}
-                  />
+                  <div className="glass-list-item-image">
+                    <img
+                      className="rounded-xl w-10 sm:w-12 md:w-16 lg:w-20 xl:w-24 hover:cursor-pointer"
+                      src={game?.banner_img}
+                      alt={`${game?.title} cover`}
+                    />
+                  </div>
                   <div>
-                    <h3 className="text-lg font-medium hover:text-red-400 hover:cursor-pointer transition-all duration-300">
+                    <h3 className="glass-list-item-title text-lg font-medium hover:cursor-pointer">
                       {game?.title}
                     </h3>
-                    <p className="opacity-50 text-sm">$ {game?.price}</p>
+                    <p className="glass-list-item-price opacity-50 text-sm">
+                      $ {game?.price}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -62,22 +83,26 @@ const TopFeatured = () => {
             <div className="mt-5 space-y-4">
               {topAction?.map((game, index) => (
                 <div
-                  key={index}
-                  className="flex items-center gap-4 p-3 rounded-lg"
-                  onClick={() => navigate(`/game/${game?._id}`)}
-                >
+                key={index}
+                className="glass-list-item flex cursor-pointer items-center gap-4 p-3 rounded-lg"
+                onClick={() => navigate(`/game/${game?._id}`)}
+              >
+                <div className="glass-list-item-image">
                   <img
-                    className="rounded-xl w-10 sm:w-12 md:w-16 lg:w-20 xl:w-24 hover:cursor-pointer transform hover:scale-105 transition-all duration-300"
+                    className="rounded-xl w-10 sm:w-12 md:w-16 lg:w-20 xl:w-24 hover:cursor-pointer"
                     src={game?.banner_img}
                     alt={`${game?.title} cover`}
                   />
-                  <div>
-                    <h3 className="text-lg font-medium hover:text-red-400 hover:cursor-pointer transition-all duration-300">
-                      {game?.title}
-                    </h3>
-                    <p className="opacity-50 text-sm">$ {game?.price}</p>
-                  </div>
                 </div>
+                <div>
+                  <h3 className="glass-list-item-title text-lg font-medium hover:cursor-pointer">
+                    {game?.title}
+                  </h3>
+                  <p className="glass-list-item-price opacity-50 text-sm">
+                    $ {game?.price}
+                  </p>
+                </div>
+              </div>
               ))}
             </div>
           </div>
@@ -91,23 +116,25 @@ const TopFeatured = () => {
             </h2>
             <div className="mt-5 space-y-4">
               {topMultiplayer?.map((game, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-4 p-3 rounded-lg"
-                  onClick={() => navigate(`/game/${game?._id}`)}
-                >
-                  <img
-                    className="rounded-xl w-10 sm:w-12 md:w-16 lg:w-20 xl:w-24 hover:cursor-pointer transform hover:scale-105 transition-all duration-300"
-                    src={game?.banner_img}
-                    alt={`${game?.title} cover`}
-                  />
-                  <div>
-                    <h3 className="text-lg font-medium hover:text-red-400 hover:cursor-pointer transition-all duration-300">
-                      {game?.title}
-                    </h3>
-                    <p className="opacity-50 text-sm">$ {game?.price}</p>
-                  </div>
-                </div>
+              <div
+              key={index}
+              className="glass-list-item flex cursor-pointer items-center gap-4 p-3 rounded-lg"
+              onClick={() => navigate(`/game/${game?._id}`)}
+            >
+              <div className="glass-list-item-image">
+                <img
+                  className="rounded-xl w-10 sm:w-12 md:w-16 lg:w-20 xl:w-24 hover:cursor-pointer"
+                  src={game?.banner_img}
+                  alt={`${game?.title} cover`}
+                />
+              </div>
+              <div>
+                <h3 className="glass-list-item-title text-lg font-medium hover:cursor-pointer">
+                  {game?.title}
+                </h3>
+                <p className="glass-list-item-price opacity-50 text-sm">$ {game?.price}</p>
+              </div>
+            </div>
               ))}
             </div>
           </div>

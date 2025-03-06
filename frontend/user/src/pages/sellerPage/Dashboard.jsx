@@ -109,7 +109,7 @@ const Dashboard = ({ games }) => {
   return (
     <section>
       <div className="flex justify-between items-center">
-        <h2 className="text-3xl font-bold text-purple-400">
+        <h2 className="text-3xl font-bold text-red-400">
           Dashboard Overview
         </h2>
         <span className="text-lg cursor-pointer" onClick={() => navigate("/")}>

@@ -20,7 +20,7 @@ const SellerDashboard = () => {
     <div className="flex h-screen bg-gray-900 text-white font-kdam">
       {/* Sidebar */}
       <aside className="w-72 bg-gray-900 p-6 flex flex-col gap-6 border-r border-gray-700 shadow-lg">
-        <h2 className="text-2xl font-bold text-purple-400 flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-red-400 flex items-center gap-2">
           <FaGamepad /> Seller Hub
         </h2>
         <nav className="flex flex-col gap-4 text-lg">
@@ -32,8 +32,8 @@ const SellerDashboard = () => {
           ].map(({ name, icon, label }) => (
             <button
               key={name}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all hover:bg-purple-600 hover:text-black text-gray-300 ${
-                activeTab === name ? "bg-purple-500 text-black" : ""
+              className={`flex cursor-pointer items-center gap-3 px-4 py-3 rounded-lg transition-all hover:bg-red-600 hover:text-black text-gray-300 ${
+                activeTab === name ? "bg-red-500 text-black" : ""
               }`}
               onClick={() => setActiveTab(name)}
             >

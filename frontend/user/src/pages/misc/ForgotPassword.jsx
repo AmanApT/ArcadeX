@@ -38,7 +38,7 @@ const ForgotPassword = () => {
           />
           <button
             type="submit"
-            className="w-full mt-5 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300"
+            className="w-full mt-5 py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300"
           >
             Send Reset Link
           </button>

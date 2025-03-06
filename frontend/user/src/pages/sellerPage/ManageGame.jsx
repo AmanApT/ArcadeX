@@ -45,7 +45,7 @@ const ManageGame = ({ games }) => {
 
   return (
     <section>
-      <h2 className="text-2xl font-bold text-purple-400">Manage Your Games</h2>
+      <h2 className="text-2xl font-bold text-red-400">Manage Your Games</h2>
       <div className="mt-6 overflow-x-auto">
         <table className="min-w-full bg-gray-800 rounded-lg shadow-md">
           <thead>

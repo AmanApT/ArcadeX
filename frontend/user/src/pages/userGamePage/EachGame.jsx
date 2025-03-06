@@ -17,7 +17,7 @@ const EachGame = ({ gameId, type }) => {
 
   useEffect(() => {
     if (!game) {
-      console.log("I am running");
+    
 
       const fetchData = async () => {
         try {
@@ -54,7 +54,7 @@ const EachGame = ({ gameId, type }) => {
         return;
       }
 
-      // console.log(response);
+   
     } catch (err) {
       console.error("Error removing game:", err);
     }
@@ -96,7 +96,7 @@ const EachGame = ({ gameId, type }) => {
     }
   };
 
-  console.log(gameId);
+
 
   return (
     <div className="bg-[#202024] rounded-md p-6">

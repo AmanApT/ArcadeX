@@ -38,7 +38,7 @@ const Profile = () => {
 
   return (
     <section className="bg-gray-900 p-6 rounded-lg shadow-lg border border-gray-700 max-w-md mx-auto">
-      <h2 className="text-2xl font-bold text-purple-400 mb-4">Profile</h2>
+      <h2 className="text-2xl font-bold text-red-400 mb-4">Profile</h2>
 
       <div className="space-y-3">
         <div className="flex items-center justify-between">
@@ -72,7 +72,7 @@ const Profile = () => {
             <button
               onClick={handleSave}
               disabled={loading}
-              className="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg transition"
+              className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition"
             >
               {loading ? "Saving..." : "Save"}
             </button>
@@ -86,7 +86,7 @@ const Profile = () => {
         ) : (
           <button
             onClick={() => setEditing(true)}
-            className="w-full mt-4 bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg transition"
+            className="w-full mt-4 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition"
           >
             Edit Name
           </button>
