@@ -38,7 +38,7 @@ const UserGames = () => {
   const finalTotal = totalPrice + totalTax;
 
   return (
-    <section className="bg-black text-white">
+    <section className="bg-black text-white min-h-screen">
       <Navbar />
       <div className="mt-[5rem] mx-20 font-kdam">
         <div className="flex items-center gap-4">
