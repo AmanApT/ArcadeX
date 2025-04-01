@@ -91,8 +91,8 @@ const signup = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // Required for cross-site cookies
-      sameSite: "None", 
+      secure: process.env.NODE_ENV === "production", // ✅ Secure only in production (HTTPS)
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
     });
 
     res.json({ message: "OTP sent. Please verify.", email });
@@ -166,10 +166,8 @@ const signin = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // Required for cross-site cookies
-      sameSite: "None",
-      secure: process.env.NODE_ENV === "production", // Required for cross-site cookies
-      sameSite: "None", 
+      secure: process.env.NODE_ENV === "production", // ✅ Secure only in production (HTTPS)
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
     });
 
     res.json({ data: data });
