@@ -20,6 +20,7 @@ import NotFoundPage from "./pages/misc/NotFoundPage";
 import ForgotPassword from "./pages/misc/ForgotPassword";
 import ResetPassword from "./pages/misc/ResetPassword";
 import Test from "./Test";
+import { backend_url } from "../constants";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ function App() {
     const fetchUser = async () => {
       try {
         const responseGames = await axios.get(
-          "http://localhost:5000/api/game/landingPageGames",
+          backend_url +  "api/game/landingPageGames",
           { withCredentials: true }
         );
 
@@ -38,7 +39,7 @@ function App() {
 
         const type = localStorage.getItem("type");
         const response = await axios.post(
-          "http://localhost:5000/api/auth/refresh",
+           backend_url + "api/auth/refresh",
           { type: type },
           { withCredentials: true }
         );

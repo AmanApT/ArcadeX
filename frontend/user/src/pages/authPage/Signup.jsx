@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { backend_url } from "../../../constants";
 
 const Signup = () => {
   const [userData, setUserData] = useState({
@@ -31,7 +32,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        backend_url + "api/auth/signup",
         userData
       );
       setSuccess("OTP sent to your email. Please verify.");

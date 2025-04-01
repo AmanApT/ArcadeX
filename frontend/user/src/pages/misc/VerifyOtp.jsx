@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import { backend_url } from "../../../constants";
 
 const VerifyOTP = () => {
   const [otp, setOtp] = useState("");
@@ -19,7 +20,7 @@ const VerifyOTP = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/verifyOtp",
+        backend_url + "api/auth/verifyOtp",
         { email, otp, type }
       );
       setStatusCode(response.status);

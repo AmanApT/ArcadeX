@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { backend_url } from "../../../constants";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -11,11 +12,12 @@ const ForgotPassword = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/forgotPassword",
+        backend_url + "api/auth/forgotPassword",
         { email }
       );
       setMessage(response.data.message);
     } catch (error) {
+      console.log(error)
       setMessage("Error sending reset email. Try again.");
     }
   };

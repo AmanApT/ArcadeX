@@ -3,12 +3,13 @@ import GameCarousel from "./GameCarousel";
 import GameNav from "./GameNav";
 import GameReq from "./GameReq";
 import GameRight from "./GameRight";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setGameDetails } from "../../utils/gameSlice";
-import { IoIosArrowBack } from "react-icons/io";
-import Navbar from "../landingPage/Navbar";
+import { backend_url } from "../../../constants";
+// import { IoIosArrowBack } from "react-icons/io";
+// import Navbar from "../landingPage/Navbar";
 
 const GameDetailPage = () => {
   const { gameId } = useParams();
@@ -23,7 +24,7 @@ const GameDetailPage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/game/getGame/${gameId}`
+          `${backend_url}api/game/getGame/${gameId}`
         );
         dispatch(setGameDetails({ gameId, details: response.data.data }));
       } catch (error) {

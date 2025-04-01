@@ -5,6 +5,7 @@ import { addCartItem, addWishlistItem } from "../../utils/userSlice";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { backend_url } from "../../../constants";
 
 /* eslint-disable react/prop-types */
 const GameRight = ({ price, gameId }) => {
@@ -25,7 +26,7 @@ const GameRight = ({ price, gameId }) => {
         return;
       }
       const data = await axios.patch(
-        "http://localhost:5000/api/user/addToCart",
+        backend_url + "api/user/addToCart",
         { gameId: gameId },
         { withCredentials: true }
       );
@@ -65,7 +66,7 @@ const GameRight = ({ price, gameId }) => {
         return;
       }
       const data = await axios.patch(
-        "http://localhost:5000/api/user/addToWishlist",
+        backend_url + "api/user/addToWishlist",
         { gameId: gameId },
         { withCredentials: true }
       );
@@ -107,7 +108,7 @@ const GameRight = ({ price, gameId }) => {
       setLoading(true);
       const stripe = await stripePromise;
       const response = await axios.post(
-        "http://localhost:5000/api/payment/createCheckoutSession",
+        backend_url + "api/payment/createCheckoutSession",
         {
           gameId,
         },

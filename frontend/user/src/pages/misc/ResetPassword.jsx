@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { backend_url } from "../../../constants";
 
 const ResetPassword = () => {
   const { token } = useParams();
@@ -11,13 +12,14 @@ const ResetPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/resetPassword", {
+      await axios.post( backend_url + "api/auth/resetPassword", {
         token,
         password,
       });
       setMessage("Password reset successful!");
       setTimeout(() => navigate("/auth/login"), 2000);
     } catch (error) {
+      console.log(error)
       setMessage("Invalid or expired token.");
     }
   };

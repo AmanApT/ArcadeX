@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setGames } from "../utils/gamesSlice";
+import { backend_url } from "../../../user/constants";
 
 const Games = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const Games = () => {
   const handleApprove = async (gameId) => {
     try {
       await axios.patch(
-        `http://localhost:5000/api/game/approveGame`,
+        `${backend_url}api/game/approveGame`,
         { _id: gameId },
         { withCredentials: true }
       );
@@ -61,13 +62,13 @@ const Games = () => {
         {approvedGames?.map((game) => (
           <div key={game._id} className="bg-gray-800 p-4 rounded-lg">
             <img
-              src={game.banner_img}
-              alt={game.title}
+              src={game?.banner_img}
+              alt={game?.title}
               className="w-full h-88 object-cover rounded"
             />
-            <h2 className="mt-2 text-lg">{game.title}</h2>
-            <p className="text-gray-400">Sold Copies: {game.sold_copies}</p>
-            <p className="text-gray-400">Status: {game.status}</p>
+            <h2 className="mt-2 text-lg">{game?.title}</h2>
+            <p className="text-gray-400">Sold Copies: {game?.sold_copies}</p>
+            <p className="text-gray-400">Status: {game?.status}</p>
           </div>
         ))}
       </div>
@@ -76,13 +77,13 @@ const Games = () => {
       <div className="grid grid-cols-2 gap-6">
         {pendingGames?.map((game) => (
           <div
-            key={game._id}
+            key={game?._id}
             className="bg-gray-900 p-4 rounded-lg flex justify-between items-center"
           >
             <span>{game.title}</span>
             <button
               className="bg-green-600 px-3 py-1 rounded"
-              onClick={() => handleApprove(game._id)}
+              onClick={() => handleApprove(game?._id)}
             >
               Approve
             </button>

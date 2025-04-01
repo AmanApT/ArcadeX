@@ -1,8 +1,9 @@
 import axios from "axios";
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setAdmin } from "../utils/adminSlice";
 import { useNavigate } from "react-router-dom";
+import { backend_url } from "../../../user/constants";
 // import { adminLogin } from "../redux/adminSlice";
 
 const Login = () => {
@@ -23,7 +24,7 @@ const Login = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:5000/api/auth/signin",
+        backend_url + "api/auth/signin",
         { password: form.password, type: "Admin" },
         { withCredentials: true }
       );

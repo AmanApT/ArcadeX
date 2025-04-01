@@ -5,6 +5,7 @@ import Chart from "react-apexcharts";
 import { useDispatch, useSelector } from "react-redux";
 import { setSellerGames } from "../../utils/gameSlice";
 import { useNavigate } from "react-router-dom";
+import { backend_url } from "../../../constants";
 
 const Dashboard = ({ games }) => {
   const { sellerGames } = useSelector((store) => store.game);
@@ -15,7 +16,7 @@ const Dashboard = ({ games }) => {
     const fetchGames = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/game/sellerGames",
+          backend_url + "api/game/sellerGames",
           games,
           { withCredentials: true }
         );

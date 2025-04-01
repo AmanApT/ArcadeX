@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { updateSellerName } from "../../utils/sellerSlice";
+import { backend_url } from "../../../constants";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const Profile = () => {
 
     try {
       const { data } = await axios.patch(
-        "http://localhost:5000/api/seller/updateSeller",
+        backend_url + "api/seller/updateSeller",
         {
           sellerId: seller._id,
           name: newName,

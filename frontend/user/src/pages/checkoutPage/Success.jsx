@@ -5,6 +5,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { addPurchasedItem, removeCartItem } from "../../utils/userSlice";
 // import { CheckCircleIcon } from "@heroicons/react/solid";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { backend_url } from "../../../constants";
 
 const Success = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Success = () => {
       try {
         requestMade.current = true;
         const { data } = await axios.post(
-          "http://localhost:5000/api/user/paymentSuccess",
+          backend_url + "api/user/paymentSuccess",
           { userId: user._id, sessionId },
           { withCredentials: true }
         );

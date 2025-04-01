@@ -67,14 +67,14 @@ const TopSellers = () => {
           {games.map((eachGame, index) => (
             <div
               key={index}
-              data-bg={eachGame.banner_img}
+              data-bg={eachGame?.banner_img}
               ref={(el) => (cardsRef.current[index] = el)}
               className="game-card bg-cover cursor-pointer w-60 h-84 rounded-xl shrink-0"
-              style={{ backgroundImage: `url(${eachGame.banner_img})` }}
+              style={{ backgroundImage: `url(${eachGame?.banner_img})` }}
               onClick={() => navigate(`/game/${eachGame?._id}`)}
             >
               <div className="game-card-content">
-                <h3 className="text-lg font-bold truncate">{eachGame.title}</h3>
+                <h3 className="text-lg font-bold truncate">{eachGame?.title}</h3>
                 <div className="flex items-center gap-2 mt-1">
                   <span className="text-sm opacity-90">
                     {eachGame.genre || "Adventure"}
@@ -89,17 +89,17 @@ const TopSellers = () => {
           <div
             onClick={() => navigate(`/game/${games[games?.length - 1]._id}`)}
             style={{
-              backgroundImage: `url(${games[games?.length - 1].banner_img})`,
+              backgroundImage: `url(${games[games?.length - 1]?.banner_img})`,
             }}
             className="game-card bg-cover cursor-pointer bg-center w-[25%] h-84 rounded-xl shrink-0"
           >
             <div className="game-card-content">
               <h3 className="text-xl font-bold truncate">
-                {games[games?.length - 1].title}
+                {games[games?.length - 1]?.title}
               </h3>
               <div className="flex items-center gap-2 mt-1">
                 <span className="text-sm opacity-90">
-                  {games[games?.length - 1].genre || "Featured Game"}
+                  {games[games?.length - 1]?.genre || "Featured Game"}
                 </span>
               </div>
             </div>
@@ -107,17 +107,17 @@ const TopSellers = () => {
           <div
             onClick={() => navigate(`/game/${games[games?.length - 2]._id}`)}
             style={{
-              backgroundImage: `url(${games[games?.length - 2].banner_img})`,
+              backgroundImage: `url(${games[games?.length - 2]?.banner_img})`,
             }}
             className="game-card bg-cover cursor-pointer bg-center w-[25%] h-84 rounded-xl shrink-0"
           >
             <div className="game-card-content">
               <h3 className="text-xl font-bold truncate">
-                {games[games?.length - 2].title}
+                {games[games?.length - 2]?.title}
               </h3>
               <div className="flex items-center gap-2 mt-1">
                 <span className="text-sm opacity-90">
-                  {games[games?.length - 2].genre || "Featured Game"}
+                  {games[games?.length - 2]?.genre || "Featured Game"}
                 </span>
               </div>
             </div>
@@ -125,17 +125,17 @@ const TopSellers = () => {
           <div
             onClick={() => navigate(`/game/${games[games?.length - 3]._id}`)}
             style={{
-              backgroundImage: `url(${games[games?.length - 3].banner_img})`,
+              backgroundImage: `url(${games[games?.length - 3]?.banner_img})`,
             }}
             className="game-card bg-cover cursor-pointer bg-center w-[25%] h-84 rounded-xl shrink-0"
           >
             <div className="game-card-content">
               <h3 className="text-xl font-bold truncate">
-                {games[games?.length - 3].title}
+                {games[games?.length - 3]?.title}
               </h3>
               <div className="flex items-center gap-2 mt-1">
                 <span className="text-sm opacity-90">
-                  {games[games?.length - 3].genre || "Featured Game"}
+                  {games[games?.length - 3]?.genre || "Featured Game"}
                 </span>
               </div>
             </div>

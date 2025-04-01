@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteSellerGames, setSellerGames } from "../../utils/gameSlice";
+import { backend_url } from "../../../constants";
 
 /* eslint-disable react/prop-types */
 const ManageGame = ({ games }) => {
@@ -12,7 +13,7 @@ const ManageGame = ({ games }) => {
     const fetchGames = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/game/sellerGames",
+          backend_url + "api/game/sellerGames",
           games,
           { withCredentials: true }
         );
@@ -33,7 +34,7 @@ const ManageGame = ({ games }) => {
   const handleDelete = async (gameId) => {
     try {
       const response = await axios.delete(
-        "http://localhost:5000/api/game/deleteGame",
+        backend_url + "api/game/deleteGame",
         { gameId },
         { withCredentials: true }
       );

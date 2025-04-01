@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +16,7 @@ import Games from "./pages/Games";
 import DashboardLayout from "./pages/DashboardLayout";
 import Users from "./pages/Users";
 import Sellers from "./pages/Sellers";
+import { backend_url } from "../../user/constants";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function App() {
     const verifyAdmin = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/auth/refresh",
+          backend_url + "api/auth/refresh",
           { type: "Admin" },
           { withCredentials: true }
         );

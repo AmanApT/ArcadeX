@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
@@ -7,6 +7,7 @@ import axios from "axios";
 import { setSellers } from "../utils/sellerSlice";
 import { setUsers } from "../utils/userSlice";
 import { setGames } from "../utils/gamesSlice";
+import { backend_url } from "../../../user/constants";
 
 const DashboardLayout = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const DashboardLayout = () => {
   useEffect(() => {
     const fetchSellers = async () => {
       const sellers = await axios.get(
-        "http://localhost:5000/api/seller/getAllSeller",
+        backend_url + "api/seller/getAllSeller",
         { withCredentials: true }
       );
 
@@ -24,7 +25,7 @@ const DashboardLayout = () => {
 
     const fetchUsers = async () => {
       const users = await axios.get(
-        "http://localhost:5000/api/user/getAllUser",
+        backend_url +  "api/user/getAllUser",
         { withCredentials: true }
       );
 
@@ -32,7 +33,7 @@ const DashboardLayout = () => {
     };
 
     const fetchGames = async () => {
-      const games = await axios.get("http://localhost:5000/api/game/allGames", {
+      const games = await axios.get(backend_url +  "api/game/allGames", {
         withCredentials: true,
       });
 

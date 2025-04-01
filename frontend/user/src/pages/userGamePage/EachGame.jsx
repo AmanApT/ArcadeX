@@ -10,6 +10,7 @@ import {
   removeWishlistItem,
 } from "../../utils/userSlice";
 import { Bounce, toast } from "react-toastify";
+import { backend_url } from "../../../constants";
 
 const EachGame = ({ gameId, type }) => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const EachGame = ({ gameId, type }) => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:5000/api/game/getGame/${gameId}`
+            `${backend_url}api/game/getGame/${gameId}`
           );
           dispatch(setGameDetails({ gameId, details: response.data.data }));
         } catch (error) {
@@ -39,13 +40,13 @@ const EachGame = ({ gameId, type }) => {
       let response;
       if (type === "cart") {
         response = await axios.delete(
-          `http://localhost:5000/api/user/removeCartGame/${gameId}`,
+          `${backend_url}api/user/removeCartGame/${gameId}`,
           { withCredentials: true }
         );
         dispatch(removeCartItem(gameId));
       } else if (type === "wishlist") {
         response = await axios.delete(
-          `http://localhost:5000/api/user/removeWishlistGame/${gameId}`,
+          `${backend_url}api/user/removeWishlistGame/${gameId}`,
           { withCredentials: true }
         );
         dispatch(removeWishlistItem(gameId));
@@ -63,7 +64,7 @@ const EachGame = ({ gameId, type }) => {
   const addToCart = async () => {
     try {
       const response = await axios.patch(
-        "http://localhost:5000/api/user/addToCart",
+        backend_url +"api/user/addToCart",
         { gameId: game._id },
         { withCredentials: true }
       );

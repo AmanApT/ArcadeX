@@ -2,6 +2,7 @@
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { backend_url } from "../../../constants";
 
 const stripePromise = loadStripe(
   "pk_test_51QrtvtGbJaoKMR0RH8rzbN24iY3zT6JQMbRJDJltzmC0FlHCZdZQKvgPv16msF8VFnpU8bd68y8jUJvfUIMLGT0100D5oNWhNJ"
@@ -15,7 +16,7 @@ const Checkout = ({ amount, cartItems }) => {
     const stripe = await stripePromise;
 
     const response = await axios.post(
-      "http://localhost:5000/api/payment/createCheckoutSession",
+      backend_url + "api/payment/createCheckoutSession",
       { cartItems, amount }
     );
 

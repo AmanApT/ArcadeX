@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../utils/userSlice";
 import { addSeller } from "../../utils/sellerSlice";
+import { backend_url } from "../../../constants";
 
 const Login = () => {
   const [userData, setUserData] = useState({
@@ -33,7 +34,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/signin",
+        backend_url + "api/auth/signin",
         userData,
         {
           withCredentials: true,

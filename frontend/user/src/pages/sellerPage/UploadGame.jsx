@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { backend_url } from "../../../constants";
 
 const UploadGame = () => {
   const [gameDetails, setGameDetails] = useState({
@@ -86,7 +87,7 @@ const UploadGame = () => {
 
       // Send game details to backend
       const gameUploadResponse = await axios.post(
-        "http://localhost:5000/api/game/addGame",
+        backend_url + "api/game/addGame",
         finalGameData,
         { withCredentials: true }
       );
@@ -146,7 +147,7 @@ const UploadGame = () => {
         
 
         const response = await axios.post(
-          "http://localhost:5000/api/game/uploadBanner",
+          backend_url + "api/game/uploadBanner",
           formData
         );
 
@@ -169,7 +170,7 @@ const UploadGame = () => {
         });
 
         const response = await axios.post(
-          "http://localhost:5000/api/game/uploadPreviews",
+          backend_url + "api/game/uploadPreviews",
           formData
         );
 
