@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(express.static("public"));
 
 const corsOptions = {
-  origin: ["http://localhost:5173", "http://localhost:5174","https://arcadex-six.vercel.app/"],
+  origin: ["http://localhost:5173", "http://localhost:5174","https://arcadex-six.vercel.app"],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
