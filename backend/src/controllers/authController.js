@@ -91,6 +91,8 @@ const signup = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
+      secure: process.env.NODE_ENV === "production", // Required for cross-site cookies
+      sameSite: "None", 
     });
 
     res.json({ message: "OTP sent. Please verify.", email });
@@ -164,6 +166,10 @@ const signin = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
+      secure: process.env.NODE_ENV === "production", // Required for cross-site cookies
+      sameSite: "None",
+      secure: process.env.NODE_ENV === "production", // Required for cross-site cookies
+      sameSite: "None", 
     });
 
     res.json({ data: data });
@@ -285,7 +291,7 @@ const forgotPassword = async (req, res) => {
   if (!user) return res.status(404).json({ message: "User not found" });
 
   const token = crypto.randomBytes(32).toString("hex");
-  
+
   await User.findByIdAndUpdate(user._id, {
     resetPasswordToken: token,
     resetPasswordExpires: Date.now() + 3600000,
