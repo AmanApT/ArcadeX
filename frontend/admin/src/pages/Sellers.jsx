@@ -1,10 +1,9 @@
-import  { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { openDialog } from "../utils/fudSlice";
 import Fud from "./Fud";
 import axios from "axios";
 import { verifySeller } from "../utils/sellerSlice";
-import { backend_url } from "../../../user/constants";
 
 const Sellers = () => {
   const dispatch = useDispatch();
@@ -32,7 +31,7 @@ const Sellers = () => {
   const handleApproveSeller = async (sellerId) => {
     try {
       const response = await axios.patch(
-        backend_url + "api/seller/verifySeller",
+        "http://localhost:5000/api/seller/verifySeller",
         { _id: sellerId },
         { withCredentials: true }
       );

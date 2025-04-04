@@ -14,7 +14,7 @@ const Sidebar = () => {
 
   return (
     <aside className="w-1/6 p-6 border-r border-[#454445] bg-[#121212] font-kdam text-white h-screen overflow-hidden">
-      <h1 className="text-xl text-[#F7EBD1] mb-6">ARCADEX - ADMIN PANEL</h1>
+      <h1 className="text-xl text-[#F7EBD1] mb-6">RUNIC VAULT - ADMIN PANEL</h1>
       <hr className="border-[#454445] mb-6 w-full" />
       <nav className="flex flex-col gap-4">
         <Link
