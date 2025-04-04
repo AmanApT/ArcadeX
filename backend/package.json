@@ -12,7 +12,7 @@
     "nodejs",
     "backend"
   ],
-  "author": "Anupreet Srivastava",
+  "author": "Aman Pathak",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
